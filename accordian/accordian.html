@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title> accordion </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+        <style>
+            body
+            {
+                display: flex;
+                justify-content: center;
+                margin-top: 50px;
+            }
+            .slide
+            {
+                border: 2px solid black;
+                background-color: grey;
+                width: 500px;
+                color: black;
+                margin-top: 10px;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .a
+            {
+                background-color:black;
+                border: 3px solid white;
+                color: white;
+                display: none;
+                text-align: center;
+            }
+            h4
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function()
+            {
+                $(".slide").first().children(".a").slideDown(500)
+                $(".slide").click(function () 
+                {
+                    $(this).children(".a").slideToggle(500)
+                    $(this).siblings().children(".a").slideUp(500)
+                    if($(this).children("h4").children("i").hasClass("fa-chevron-up"))
+                    {
+                        $(this).children("h4").children("i").addClass("fa-chevron-down").removeClass("fa-chevron-up")
+                    }
+                    else
+                    {
+                        $(this).children("h4").children("i").addClass("fa-chevron-up").removeClass("fa-chevron-down")
+                    }
+                    if ($(this).siblings(".slide").children("h4").children("i").hasClass("fa-chevron-up")) {
+                        $(this).siblings(".slide").children("h4").children("i").removeClass("fa-chevron-up").addClass("fa-chevron-down")
+                    } 
+                })
+            })
+        </script>
+        <div class="main">
+            <div class="slide">
+                <h4>Slide-1  <i class="fa-solid fa-chevron-down up" ></i></h4>
+                <div class="a"> 
+                    <h5>Drashtti sapovadia</h5>
+                    <h5>BTech</h5>
+                </div>
+            </div>
+            <div class="slide">
+                <h4>Slide-2  <i class="fa-solid fa-chevron-down up" ></i></h4>
+                <div class="a"> 
+                    <h5>Drashtti sapovadia</h5>
+                    <h5>BTech</h5>
+                </div>
+            </div>
+            <div class="slide">
+                <h4>Slide-3 <i class="fa-solid fa-chevron-down up" ></i></h4>
+                <div class="a"> 
+                    <h5>Drashtti sapovadia</h5>
+                    <h5>BTech</h5>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
